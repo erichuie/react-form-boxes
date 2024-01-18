@@ -1,4 +1,4 @@
-
+import { useState } from 'react';
 /** Form for creating a new box and adding it to list
  *
  * Props:
@@ -60,6 +60,7 @@ function NewBoxForm({ addBox }) {
         value={formData.height}
         onChange={handleChange}
       />
+      <button>Submit</button>
     </form>
   )
 
