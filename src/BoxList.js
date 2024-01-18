@@ -20,7 +20,7 @@ function BoxList(){
 
   /** Add a box to box list */
   function addBox(boxToAdd) {
-    boxToAdd.id = uuid();
+    // boxToAdd.id = uuid();
     setBoxes([...boxes, boxToAdd]);
   }
 
@@ -31,9 +31,11 @@ function BoxList(){
     setBoxes(newBoxes);
   }
 
+  //could place contents of function directly in overall returning JSX
   /** create div elements for boxes in list */
   function renderBoxes() {
     return <div>
+      {/* //could destructure box   */}
       {boxes.map(box =>
         <Box
           id={box.id}

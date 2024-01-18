@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { v4 as uuid } from 'uuid';
 /** Form for creating a new box and adding it to list
  *
  * Props:
@@ -14,14 +15,25 @@ function NewBoxForm({ addBox }) {
 
   const initialState = {
     backgroundColor: "",
-    width: "0px",
+    width: "0px", //could have default as empty string since could pass ems besides px
     height: "0px",
   };
   const [formData, setFormData] = useState(initialState);
 
+  //could set uuid in handleSubmit
+  //
   /** Send {backgroundColor, width, height} to box list, clear form */
   function handleSubmit(evt) {
     evt.preventDefault();
+    formData.id = uuid();
+    // const updatedFormData = {
+    //   ...formData,
+    //   id: uuid()
+    // }
+    // setFormData(fData => ({
+    //   ...fData,
+    //   id: uuid(),
+    // }));
     addBox(formData);
     setFormData(initialState);
   }
@@ -37,6 +49,7 @@ function NewBoxForm({ addBox }) {
 
   return (
     <form onSubmit={handleSubmit}>
+      {/* change name of htmlFor and id to NewBoxForm-backgroundInput...  */}
       <label htmlFor="backgroundColorInput">Background Color:</label>
       <input
         id="backgroundColorInput"
@@ -53,7 +66,7 @@ function NewBoxForm({ addBox }) {
         onChange={handleChange}
       />
 
-      <label htmlFor="heightInput">Width:</label>
+      <label htmlFor="heightInput">Height:</label>
       <input
         id="heightInput"
         name="height"

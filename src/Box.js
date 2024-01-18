@@ -14,6 +14,8 @@
  * BoxList -> Box
  */
 
+//could set default values for arguments
+//insert the value of width/height and concatenate a px, %, or em with string concat
 function Box( { id, backgroundColor, width, height, removeBox } ){
   return (
     <div>
@@ -23,6 +25,7 @@ function Box( { id, backgroundColor, width, height, removeBox } ){
         height: height
         }}>
       </div>
+      {/* make own function outside return statement for removeBox */}
       <button onClick={() => removeBox(id)}>X</button>
     </div>
   );
